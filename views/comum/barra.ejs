@@ -4,21 +4,37 @@
 	https://getbootstrap.com/docs/5.3/components/navbar/
 -->
 
-<nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="/">Projeto</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="/produtos">Produtos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/sobre">Sobre</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+<!-- views/comum/barra.ejs -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <div class="container-fluid">
+    <!-- Brand (logo/nome do projeto) -->
+    <a class="navbar-brand" href="/">Testamento Vital Digital</a>
+    <!-- Botão toggler para mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Links de navegação (colapsáveis em mobile) -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/produtos">Produtos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sobre">Sobre</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Entrar</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light ms-md-2" href="/register">Criar Conta</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

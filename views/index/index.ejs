@@ -1,11 +1,363 @@
-﻿<div class="container-fluid">
+﻿<!-- views/index/index.ejs -->
+<div class="container-fluid px-0">
+  <!-- Hero Section -->
+  <section class="py-5 position-relative text-center text-md-start" 
+           style="background: linear-gradient(135deg, #e2eafc, #ece2f9); overflow: hidden;">
+    <div class="container">
+      <div class="row align-items-center justify-content-center g-4">
+        <!-- Hero Texto -->
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-semibold text-dark mb-4">
+            Crie seu <span class="text-primary">Testamento Vital</span> de forma segura e legal
+          </h1>
+          <p class="lead text-secondary mb-4">
+            Documente suas preferências de tratamento médico com nossa plataforma digital segura, 
+            em conformidade com a legislação brasileira e a LGPD.
+          </p>
+          <!-- Trust Signals (LGPD, Criptografia, Marco Legal) -->
+          <div class="d-flex flex-wrap justify-content-center justify-content-md-start mb-4">
+            <!-- LGPD Compliant -->
+            <div class="d-flex align-items-center bg-white rounded-pill shadow-sm py-2 px-3 me-3 mb-2">
+              <svg width="20" height="20" fill="currentColor" class="text-success me-2" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16Z"/>
+                <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 1 0-1.06 1.06L6.97 
+                         11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05Z"/>
+              </svg>
+              <span class="small fw-semibold text-dark">LGPD Compliant</span>
+            </div>
+            <!-- Criptografia SHA-256 -->
+            <div class="d-flex align-items-center bg-white rounded-pill shadow-sm py-2 px-3 me-3 mb-2">
+              <svg width="20" height="20" fill="currentColor" class="text-primary me-2" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 
+                         2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 
+                         13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4ZM4.5 
+                         7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 
+                         15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 
+                         7zM8 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3Z"/>
+              </svg>
+              <span class="small fw-semibold text-dark">Criptografia SHA-256</span>
+            </div>
+            <!-- Marco Legal Brasileiro -->
+            <div class="d-flex align-items-center bg-white rounded-pill shadow-sm py-2 px-3 mb-2">
+              <svg width="20" height="20" fill="currentColor" class="text-secondary me-2" viewBox="0 0 16 16">
+                <path d="M10.273 2.513 9.352 1.57l.715-.698.622.637.89-.011a2.89 2.89 0 0 
+                         1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 
+                         4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 
+                         2.89 0 0 1-4.134 0l-.922-.944-1.32.016a2.89 2.89 0 0 1-2.911-2.912l.016-1.318-.944-.921a2.89 
+                         2.89 0 0 1 0-2.704l.944-.92-.016-1.32A2.89 2.89 0 0 1 3.99 1.556l1.318.016.922-.936a2.89 
+                         2.89 0 0 1 4.134 0ZM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 
+                         2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 
+                         9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 
+                         7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 
+                         7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43a63.05 63.05 0 0 1 2.887-.87Z"/>
+                <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 
+                         .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 
+                         .708-.708L7 7.793l2.646-2.647a.5.5 0 0 1 .708 0Z"/>
+              </svg>
+              <span class="small fw-semibold text-dark">Marco Legal Brasileiro</span>
+            </div>
+          </div>
+          <!-- CTA Buttons -->
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-md-start">
+            <a href="/register" class="btn btn-primary btn-lg px-4">Criar Conta Gratuita</a>
+            <a href="/login" class="btn btn-outline-primary btn-lg px-4">Fazer Login</a>
+          </div>
+        </div>
+        <!-- Hero Image -->
+        <div class="col-lg-6 text-center">
+          <div class="position-relative d-inline-block" style="transform: rotate(3deg);">
+            <img src="https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&w=800" 
+                 alt="Pessoa assinando documento legal" class="rounded-3 shadow-lg img-fluid" 
+                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=800&fit=crop'; this.onerror=null;">
+            <!-- Ícone de check sobreposto na imagem -->
+            <div class="position-absolute top-0 end-0 translate-middle mt-3 me-3 bg-success text-white p-3 rounded-circle shadow">
+              <svg width="24" height="24" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                <path d="M11.03 5.97 7.5 9.5l-2.03-2.03a.75.75 
+                         0 1 0-1.06 1.06l2.56 2.56a.75.75 0 0 0 1.06 0l4.04-4.04a.75.75 
+                         0 0 0-1.06-1.06z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<h1>
-		Projeto
-	</h1>
+  <!-- Features Section: Por que escolher nossa plataforma? -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-semibold text-dark">Por que escolher nossa plataforma?</h2>
+        <p class="text-secondary fs-5 mb-0">Oferecemos a solução mais completa e segura para criação de testamentos vitais no Brasil.</p>
+      </div>
+      <div class="row g-4">
+        <!-- Feature 1: Assistente Guiado -->
+        <div class="col-md-4">
+          <div class="text-center h-100 p-4 border-0 shadow-sm rounded">
+            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;">
+              <svg width="32" height="32" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                <path d="M4 0h8a2 2 0 0 1 2 2v2H2V2a2 2 0 0 1 2-2z"/>
+                <path d="M2 6h12v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 
+                         3a.5.5 0 0 0 0 1h8a.5.5 0 0 0 0-1H4zm0 2a.5.5 0 0 
+                         0 0 1h8a.5.5 0 0 0 0-1H4z"/>
+              </svg>
+            </div>
+            <h5 class="fw-semibold text-dark">Assistente Guiado</h5>
+            <p class="text-secondary">
+              Interface intuitiva que te guia passo a passo na criação do seu testamento vital, garantindo que todos os aspectos legais sejam cobertos.
+            </p>
+          </div>
+        </div>
+        <!-- Feature 2: Armazenamento Seguro -->
+        <div class="col-md-4">
+          <div class="text-center h-100 p-4 border-0 shadow-sm rounded">
+            <div class="bg-secondary bg-opacity-10 text-secondary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;">
+              <svg width="32" height="32" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                <path d="M5.5 8a.5.5 0 0 1 .5.5V9a2 2 0 1 0 
+                         4 0v-.5a.5.5 0 0 1 1 0V9a3 3 0 0 1-6 0v-.5a.5.5 
+                         0 0 1 .5-.5z"/>
+                <path d="M7.967 0.146C4.69.654 2 3.132 2 
+                         6v5.293c0 .943.553 1.787 1.382 2.173l4 
+                         1.867c.516.24 1.12.24 1.636 0l4-1.867A2.309 
+                         2.309 0 0 0 14 11.293V6c0-2.868-2.69-5.346-5.967-5.854a1.13 
+                         1.13 0 0 0-.066-.002c-.022 0-.044.001-.066.002zM8 
+                         1c.042 0 .084.002.126.006C11.012 1.402 13 3.375 13 
+                         6v5.293a1.308 1.308 0 0 1-.785 1.21l-4 
+                         1.867a1.13 1.13 0 0 1-.93 0l-4-1.867A1.308 1.308 0 0 
+                         1 3 11.293V6c0-2.625 1.988-4.598 4.874-4.994A1.13 
+                         1.13 0 0 1 8 1z"/>
+              </svg>
+            </div>
+            <h5 class="fw-semibold text-dark">Armazenamento Seguro</h5>
+            <p class="text-secondary">
+              Seus documentos são protegidos com criptografia de nível bancário e armazenados em servidores seguros no Brasil.
+            </p>
+          </div>
+        </div>
+        <!-- Feature 3: Compartilhamento Controlado -->
+        <div class="col-md-4">
+          <div class="text-center h-100 p-4 border-0 shadow-sm rounded">
+            <div class="bg-info bg-opacity-10 text-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;">
+              <svg width="32" height="32" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                <path d="M13 7c0-1.105-1.567-2-3.5-2S6 
+                         5.895 6 7s1.567 2 3.5 2S13 8.105 13 
+                         7zM3.5 5C2.12 5 1 5.672 1 6.5S2.12 8 
+                         3.5 8 6 7.328 6 6.5 4.88 5 3.5 
+                         5zM3 9c-1.67 0-5 0.895-5 2.5V13h8v-1.5C6 
+                         9.895 4.67 9 3 9zm9.5 0c-.878 0-2.683.243-3.5.745v1.505L16 
+                         13v-1.5c0-1.607-3.33-2.5-5-2.5z"/>
+              </svg>
+            </div>
+            <h5 class="fw-semibold text-dark">Compartilhamento Controlado</h5>
+            <p class="text-secondary">
+              Compartilhe seus documentos com familiares e médicos através de links seguros, com controle de acesso e prazo de validade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Oi, mundo! 😊
-	</p>
+  <!-- Statistics Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3">
+          <div class="h1 text-primary fw-bold">99.9%</div>
+          <div class="text-secondary">Disponibilidade</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="h1 text-secondary fw-bold">256-bit</div>
+          <div class="text-secondary">Criptografia</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="h1 text-success fw-bold">100%</div>
+          <div class="text-secondary">LGPD Ok</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="h1 text-warning fw-bold">24/7</div>
+          <div class="text-secondary">Suporte</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Legal Importance Section -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-semibold text-dark">A Importância Legal do Testamento Vital</h2>
+        <p class="text-secondary fs-5 mb-0">Entenda como o testamento vital é reconhecido no ordenamento jurídico brasileiro.</p>
+      </div>
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <img src="https://images.pixabay.com/photo/2017/07/31/11/21/people-2557396_1280.jpg" 
+               alt="Família conversando sobre cuidados médicos" class="img-fluid rounded shadow" 
+               onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=800&fit=crop'; this.onerror=null;">
+        </div>
+        <div class="col-md-6">
+          <div class="mb-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3 mt-1">
+                <svg width="24" height="24" fill="currentColor" class="bi bi-file-earmark-check" viewBox="0 0 16 16">
+                  <path d="M10.854 6.146a.5.5 0 0 1 0 
+                           .708l-3 3a.5.5 0 0 1-.708 
+                           0l-1.5-1.5a.5.5 0 1 1 
+                           .708-.708L7 8.793l2.646-2.647a.5.5 
+                           0 0 1 .708 0z"/>
+                  <path d="M14 4.5V14a1 1 0 0 
+                           1-1 1H3a1 1 0 0 1-1-1V4.5L8 
+                           8.933 14 4.5zM8 8L2.5 
+                           4h11L8 8zM3 3a1 1 0 0 
+                           1 1-1h8a1 1 0 0 1 1 1v.217L8 
+                           7 3 3.217V3z"/>
+                </svg>
+              </div>
+              <div>
+                <h5 class="fw-semibold text-dark mb-1">Resolução CFM nº 1.995/2012</h5>
+                <p class="text-secondary mb-0">Reconhece oficialmente as diretivas antecipadas de vontade no Brasil.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-3">
+              <div class="bg-secondary bg-opacity-10 text-secondary rounded-circle p-2 me-3 mt-1">
+                <svg width="24" height="24" fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10.354 6.146a.5.5 0 0 1 
+                           0 .708l-3 3a.5.5 0 0 1-.708 
+                           0l-1.5-1.5a.5.5 0 1 1 
+                           .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 
+                           .708 0z"/>
+                  <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 
+                           2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 
+                           2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 
+                           2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 
+                           2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 
+                           2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 
+                           2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 
+                           2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 
+                           2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 
+                           0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 
+                           0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 
+                           0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 
+                           0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 
+                           0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 
+                           1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 
+                           0-2.704-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 
+                           0-1.912-1.911l-1.318.016z"/>
+                </svg>
+              </div>
+              <div>
+                <h5 class="fw-semibold text-dark mb-1">Constituição Federal</h5>
+                <p class="text-secondary mb-0">Assegura a dignidade da pessoa humana e o direito à autodeterminação.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="bg-success bg-opacity-10 text-success rounded-circle p-2 me-3 mt-1">
+                <svg width="24" height="24" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
+                  <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 
+                           4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 
+                           2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 
+                           .101.025.615.615 0 0 0 
+                           .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 
+                           10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 
+                           0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 
+                           1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 
+                           2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 
+                           4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 
+                           2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 
+                           7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 
+                           10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 
+                           1.43a63.05 63.05 0 0 1 2.887-.87z"/>
+                  <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 
+                           0l-1.5-1.5a.5.5 0 1 1 
+                           .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h5 class="fw-semibold text-dark mb-1">Lei Geral de Proteção de Dados</h5>
+                <p class="text-secondary mb-0">Garante a proteção e privacidade dos dados pessoais e de saúde.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-semibold text-dark">O que nossos usuários dizem</h2>
+      </div>
+      <div class="row g-4">
+        <!-- Testimonial 1 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&w=400" 
+                   alt="Maria Silva" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;" 
+                   onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=400&fit=crop'; this.onerror=null;">
+              <div>
+                <div class="fw-semibold text-dark">Maria Silva</div>
+                <div class="text-secondary small">Advogada, 52 anos</div>
+              </div>
+            </div>
+            <p class="fst-italic text-secondary">
+              "A plataforma é muito intuitiva e me deu a tranquilidade de saber que meus desejos estão documentados de forma legal e segura."
+            </p>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" 
+                   alt="João Santos" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;" 
+                   onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=400&fit=crop'; this.onerror=null;">
+              <div>
+                <div class="fw-semibold text-dark">João Santos</div>
+                <div class="text-secondary small">Médico, 45 anos</div>
+              </div>
+            </div>
+            <p class="fst-italic text-secondary">
+              "Como médico, recomendo esta plataforma para meus pacientes. É uma ferramenta essencial para garantir que os desejos sejam respeitados."
+            </p>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=compress&w=400" 
+                   alt="Ana Costa" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;" 
+                   onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=400&fit=crop'; this.onerror=null;">
+              <div>
+                <div class="fw-semibold text-dark">Ana Costa</div>
+                <div class="text-secondary small">Professora, 38 anos</div>
+              </div>
+            </div>
+            <p class="fst-italic text-secondary">
+              "O processo foi muito mais simples do que imaginei. Em poucos minutos consegui criar meu testamento vital completo."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+      <h2 class="fw-semibold mb-4">Comece hoje mesmo</h2>
+      <p class="fs-4 mb-4">
+        Crie seu testamento vital em minutos e tenha a tranquilidade de saber que seus desejos serão respeitados.
+      </p>
+      <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+        <a href="/register" class="btn btn-light btn-lg text-primary px-5">Criar Conta Gratuita</a>
+        <a href="/sobre" class="btn btn-outline-light btn-lg px-5">Saiba Mais</a>
+      </div>
+    </div>
+  </section>
 </div>
+
