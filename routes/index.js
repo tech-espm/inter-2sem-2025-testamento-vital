@@ -15,7 +15,9 @@ router.get("/sobre", wrap(async (req, res) => {
 	res.render("index/sobre", opcoes);
 }));
 
-router.get("/produtos", wrap(async (req, res) => {
+
+
+router.get("/meutestamento", wrap(async (req, res) => {
 	let produtoA = {
 		id: 1,
 		nome: "Produto A",
@@ -41,7 +43,7 @@ router.get("/produtos", wrap(async (req, res) => {
 		produtos: produtosVindosDoBanco
 	};
 
-	res.render("index/produtos", opcoes);
+	res.render("index/meutestamento", opcoes);
 }));
 
 module.exports = router;
