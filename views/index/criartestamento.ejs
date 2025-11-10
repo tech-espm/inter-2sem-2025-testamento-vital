@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class ="mb-3">
+                <label class="form-label" for="inputNome">Nome</label>
+                <input class="form-control" type="text" maxlength="100" id="inputNome"/>
+            </div>
+        </div>
+
+         <div class="col-sm-6">
+            <div class ="mb-3">
+                <label class="form-label" for="inputEmail">Email</label>
+                <input class="form-control" type="email" maxlength="100" id="inputEmail"/>
+            </div>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="criarTestamento()">Criar Testamento</button>
+    </div>
+
+</div>
+
+<script>
+    async function criarTestamento(){
+        let inputNome = document.getElementById("inputNome");
+        let inputEmail = document.getElementById("inputEmail");
+
+        let nome = inputNome.value;
+        let email = inputEmail.value;
+
+        if (!nome) {
+            alert("Nome inválido!");
+            return;
+        }
+
+        if (!email) {
+            alert("E-mail inválido!");
+            return;
+        }
+
+        let pessoa = {
+            nome: nome,
+            email: email
+        };
+
+        try {
+
+            let response = await fetch("/api/criartestamento", {
+                method: "POST", 
+                body: JSON.stringify(pessoa), 
+                headers: { 
+                    "content-type": "application/json"
+                }
+            });
+
+            if (!response.ok) { 
+                alert("Ocorreu um erro ao criar a pessoa :(");
+                return;
+            }
+
+            inputNome.value = "";
+            inputEmail.value = "";
+
+            alert("Pessoa criada com sucesso!");
+
+        } catch (ex) {
+            
+            alert("Ocorreu um erro de rede ao criar a pessoa: " + ex.message)
+        }
+
+    }
+</script>

@@ -24,7 +24,7 @@ router.get("/meutestamento", wrap(async (req, res) => {
 
 	await sql.connect(async sql => {
 		//tudo aqui dentro é executado com a conexão aberta.
-		produtos = await sql.query("select id, nome, email, telefone from pessoa");
+	produtos = await sql.query("select id, nome, email, telefone from pessoa");
 	});
 
 	let produtoA = {
@@ -53,6 +53,42 @@ router.get("/meutestamento", wrap(async (req, res) => {
 	};
 
 	res.render("index/meutestamento", opcoes);
+}));
+
+
+router.get("/criartestamento", wrap(async (req, res) => {
+	let opcoes = {
+		titulo: "Criar Testamento"
+	};
+
+	res.render("index/criartestamento", opcoes);
+}));
+
+router.post("/api/criartestamento", wrap(async (req, res) => {
+	let testamento = req.body;
+
+	if(!testamento.nome){
+		res.status(400).json("Nome inválido!");
+		return;
+	}
+
+	if(!testamento.email){
+		res.status(400).json("Email inválido!");
+		return;
+	}
+
+
+	await sql.connect(async sql => {
+		//tudo aqui dentro é executado com a conexão aberta.
+
+		let parametros = [
+			testamento.nome,
+			testamento.email
+		];
+		await sql.query("insert into testamento(nome, email) values (?, ?)", parametros);
+	});
+
+	res.json(true);
 }));
 
 module.exports = router;
