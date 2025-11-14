@@ -57,8 +57,22 @@ router.get("/meutestamento", wrap(async (req, res) => {
 
 
 router.get("/criartestamento", wrap(async (req, res) => {
+
+	let lista;
+
+	await sql.connect(async sql => {
+		lista = await sql.query("select id, nome, email from testamento");
+	});
+
+	let testamento = null;
+
+	if (lista.length > 0) {
+		testamento = lista[0];
+	}
+
 	let opcoes = {
-		titulo: "Criar Testamento"
+		titulo: "Criar Testamento",
+		testamento: testamento,
 	};
 
 	res.render("index/criartestamento", opcoes);
@@ -77,15 +91,20 @@ router.post("/api/criartestamento", wrap(async (req, res) => {
 		return;
 	}
 
-
 	await sql.connect(async sql => {
 		//tudo aqui dentro é executado com a conexão aberta.
-
 		let parametros = [
 			testamento.nome,
 			testamento.email
 		];
-		await sql.query("insert into testamento(nome, email) values (?, ?)", parametros);
+
+		if (testamento.id) {
+			parametros.push(testamento.id);
+
+			await sql.query("update testamento set nome = ?, email = ? where id = ?", parametros);
+		} else {
+			await sql.query("insert into testamento (nome, email) values (?, ?)", parametros);
+		}
 	});
 
 	res.json(true);

@@ -1,16 +1,18 @@
+<input type="hidden" id="inputId" value="<%= (testamento ? testamento.id : '') %>" />
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
             <div class ="mb-3">
                 <label class="form-label" for="inputNome">Nome</label>
-                <input class="form-control" type="text" maxlength="100" id="inputNome"/>
+                <input class="form-control" type="text" maxlength="100" id="inputNome" value="<%= (testamento ? testamento.nome : '') %>" />
             </div>
         </div>
 
          <div class="col-sm-6">
             <div class ="mb-3">
                 <label class="form-label" for="inputEmail">Email</label>
-                <input class="form-control" type="email" maxlength="100" id="inputEmail"/>
+                <input class="form-control" type="email" maxlength="100" id="inputEmail" value="<%= (testamento ? testamento.email : '') %>" />
             </div>
         </div>
 
@@ -23,9 +25,11 @@
 
 <script>
     async function criarTestamento(){
+        let inputId = document.getElementById("inputId");
         let inputNome = document.getElementById("inputNome");
         let inputEmail = document.getElementById("inputEmail");
 
+        let id = inputId.value;
         let nome = inputNome.value;
         let email = inputEmail.value;
 
@@ -40,6 +44,7 @@
         }
 
         let pessoa = {
+			id: id,
             nome: nome,
             email: email
         };
