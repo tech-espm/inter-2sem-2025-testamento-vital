@@ -51,34 +51,34 @@
       <div class="col-md-6 mb-3">
         <label for="uf" class="form-label">Estado (UF)</label>
         <select id="uf" name="uf" class="form-select" required>
-          <option value="" selected disabled>Selecione seu Estado</option>
-          <option value="AC">AC - Acre</option>
-          <option value="AL">AL - Alagoas</option>
-          <option value="AP">AP - Amapá</option>
-          <option value="AM">AM - Amazonas</option>
-          <option value="BA">BA - Bahia</option>
-          <option value="CE">CE - Ceará</option>
-          <option value="DF">DF - Distrito Federal</option>
-          <option value="ES">ES - Espírito Santo</option>
-          <option value="GO">GO - Goiás</option>
-          <option value="MA">MA - Maranhão</option>
-          <option value="MT">MT - Mato Grosso</option>
-          <option value="MS">MS - Mato Grosso do Sul</option>
-          <option value="MG">MG - Minas Gerais</option>
-          <option value="PA">PA - Pará</option>
-          <option value="PB">PB - Paraíba</option>
-          <option value="PR">PR - Paraná</option>
-          <option value="PE">PE - Pernambuco</option>
-          <option value="PI">PI - Piauí</option>
-          <option value="RJ">RJ - Rio de Janeiro</option>
-          <option value="RN">RN - Rio Grande do Norte</option>
-          <option value="RS">RS - Rio Grande do Sul</option>
-          <option value="RO">RO - Rondônia</option>
-          <option value="RR">RR - Roraima</option>
-          <option value="SC">SC - Santa Catarina</option>
-          <option value="SP">SP - São Paulo</option>
-          <option value="SE">SE - Sergipe</option>
-          <option value="TO">TO - Tocantins</option>
+          <option value="" disabled>Selecione seu Estado</option>
+          <option value="AC" <%- (testamento && testamento.uf == "AC" ? 'selected="selected"' : '') %>>AC - Acre</option>
+          <option value="AL" <%- (testamento && testamento.uf == "AL" ? 'selected="selected"' : '') %>>AL - Alagoas</option>
+          <option value="AP" <%- (testamento && testamento.uf == "AP" ? 'selected="selected"' : '') %>>AP - Amapá</option>
+          <option value="AM" <%- (testamento && testamento.uf == "AM" ? 'selected="selected"' : '') %>>AM - Amazonas</option>
+          <option value="BA" <%- (testamento && testamento.uf == "BA" ? 'selected="selected"' : '') %>>BA - Bahia</option>
+          <option value="CE" <%- (testamento && testamento.uf == "CE" ? 'selected="selected"' : '') %>>CE - Ceará</option>
+          <option value="DF" <%- (testamento && testamento.uf == "DF" ? 'selected="selected"' : '') %>>DF - Distrito Federal</option>
+          <option value="ES" <%- (testamento && testamento.uf == "ES" ? 'selected="selected"' : '') %>>ES - Espírito Santo</option>
+          <option value="GO" <%- (testamento && testamento.uf == "GO" ? 'selected="selected"' : '') %>>GO - Goiás</option>
+          <option value="MA" <%- (testamento && testamento.uf == "MA" ? 'selected="selected"' : '') %>>MA - Maranhão</option>
+          <option value="MT" <%- (testamento && testamento.uf == "MT" ? 'selected="selected"' : '') %>>MT - Mato Grosso</option>
+          <option value="MS" <%- (testamento && testamento.uf == "MS" ? 'selected="selected"' : '') %>>MS - Mato Grosso do Sul</option>
+          <option value="MG" <%- (testamento && testamento.uf == "MG" ? 'selected="selected"' : '') %>>MG - Minas Gerais</option>
+          <option value="PA" <%- (testamento && testamento.uf == "PA" ? 'selected="selected"' : '') %>>PA - Pará</option>
+          <option value="PB" <%- (testamento && testamento.uf == "PB" ? 'selected="selected"' : '') %>>PB - Paraíba</option>
+          <option value="PR" <%- (testamento && testamento.uf == "PR" ? 'selected="selected"' : '') %>>PR - Paraná</option>
+          <option value="PE" <%- (testamento && testamento.uf == "PE" ? 'selected="selected"' : '') %>>PE - Pernambuco</option>
+          <option value="PI" <%- (testamento && testamento.uf == "PI" ? 'selected="selected"' : '') %>>PI - Piauí</option>
+          <option value="RJ" <%- (testamento && testamento.uf == "RJ" ? 'selected="selected"' : '') %>>RJ - Rio de Janeiro</option>
+          <option value="RN" <%- (testamento && testamento.uf == "RN" ? 'selected="selected"' : '') %>>RN - Rio Grande do Norte</option>
+          <option value="RS" <%- (testamento && testamento.uf == "RS" ? 'selected="selected"' : '') %>>RS - Rio Grande do Sul</option>
+          <option value="RO" <%- (testamento && testamento.uf == "RO" ? 'selected="selected"' : '') %>>RO - Rondônia</option>
+          <option value="RR" <%- (testamento && testamento.uf == "RR" ? 'selected="selected"' : '') %>>RR - Roraima</option>
+          <option value="SC" <%- (testamento && testamento.uf == "SC" ? 'selected="selected"' : '') %>>SC - Santa Catarina</option>
+          <option value="SP" <%- (testamento && testamento.uf == "SP" ? 'selected="selected"' : '') %>>SP - São Paulo</option>
+          <option value="SE" <%- (testamento && testamento.uf == "SE" ? 'selected="selected"' : '') %>>SE - Sergipe</option>
+          <option value="TO" <%- (testamento && testamento.uf == "TO" ? 'selected="selected"' : '') %>>TO - Tocantins</option>
         </select>
       </div>
     </div>
@@ -92,14 +92,14 @@
     <div class="row mb-4">
       <div class="col-md-6 mb-3">
         <label for="relacaoRep" class="form-label">Parentesco/Relação</label>
-        <select id="relacaoRep" name="relacao_representante" class="form-select">
-          <option value="" selected disabled>Selecione</option>
-          <option>Cônjuge</option>
-          <option>Filho(a)</option>
-          <option>Pai/Mãe</option>
-          <option>Irmão/Irmã</option>
-          <option>Amigo(a)</option>
-          <option>Outro</option>
+        <select id="relacaoRep" name="relacao_parentesco" class="form-select">
+          <option value="" disabled>Selecione</option>
+          <option value="Cônjuge" <%- (testamento && testamento.relacao_parentesco == "Cônjuge" ? 'selected="selected"' : '') %>>Cônjuge</option>
+          <option value="Filho(a)" <%- (testamento && testamento.relacao_parentesco == "Filho(a)" ? 'selected="selected"' : '') %>>Filho(a)</option>
+          <option value="Pai/Mãe" <%- (testamento && testamento.relacao_parentesco == "Pai/Mãe" ? 'selected="selected"' : '') %>>Pai/Mãe</option>
+          <option value="Irmão/Irmã" <%- (testamento && testamento.relacao_parentesco == "Irmão/Irmã" ? 'selected="selected"' : '') %>>Irmão/Irmã</option>
+          <option value="Amigo(a)" <%- (testamento && testamento.relacao_parentesco == "Amigo(a)" ? 'selected="selected"' : '') %>>Amigo(a)</option>
+          <option value="Outro" <%- (testamento && testamento.relacao_parentesco == "Outro" ? 'selected="selected"' : '') %>>Outro</option>
         </select>
       </div>
       <div class="col-md-6 mb-3">
