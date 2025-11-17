@@ -1,56 +1,72 @@
 <div class="container-fluid">
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastro de Testamento Vital</title>
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container my-5">
+  <!DOCTYPE html>
+  <html lang="pt-BR">
 
-  <h1 class="mb-4 text-center">Cadastro de Testamento Vital</h1>
-  
-  <form>
-    <!-- Dados Pessoais -->
-    <h5 class="mb-3">Dados Pessoais</h5>
-    <div class="row mb-3">
-      <div class="col-md-6 mb-3">
-        <label for="nome" class="form-label">Nome Completo</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome completo" required>
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com" required>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-6 mb-3">
-        <label for="cpf" class="form-label">CPF</label>
-        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="nascimento" class="form-label">Data de Nascimento</label>
-        <input type="date" class="form-control" id="nascimento" name="data_nascimento" required>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-6 mb-3">
-        <label for="telefone" class="form-label">Telefone</label>
-        <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(DD) 00000-0000">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="endereco" class="form-label">Endereço</label>
-        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, Número, Cidade" required>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-md-6 mb-3">
-        <label for="uf" class="form-label">Estado (UF)</label>
-        <select id="uf" name="uf" class="form-select" required>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Testamento Vital</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <input type="hidden" id="inputId" value="<%= (testamento ? testamento.id : '') %>" />
+    <div class="container my-5">
+
+      <h1 class="mb-4 text-center">Cadastro de Testamento Vital</h1>
+
+      <form>
+        <!-- Dados Pessoais -->
+        <h5 class="mb-3">Dados Pessoais</h5>
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="inputNome" class="form-label">Nome Completo</label>
+            <input class="form-control" type="text" maxlength="100" id="inputNome" name="nome"
+              placeholder="Seu nome completo" required value="<%= (testamento ? testamento.nome : '') %>" />
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="inputEmail" class="form-label">E-mail</label>
+            <input class="form-control" type="email" maxlength="100" id="inputEmail" name="email" placeholder="seu@email.com"
+              required value="<%= (testamento ? testamento.email : '') %>" />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14"
+              required value="<%= (testamento ? testamento.cpf : '') %>" />
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="nascimento" class="form-label">Data de Nascimento</label>
+            <input type="datetime" class="form-control" id="nascimento" name="data_nascimento" required
+              value="<%= (testamento ? testamento.nascimento : '') %>" />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(DD) 00000-0000"
+              value="<%= (testamento ? testamento.telefone : '') %>" />
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="endereco" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, Número, Cidade"
+              required value="<%= (testamento ? testamento.endereco : '') %>" />
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6 mb-3">
+            <label for="uf" class="form-label">Estado (UF)</label> <!-- pedir ajuda do Rafa nesse-->
+            <select id="uf" name="uf" class="form-select" required>
           <option value="" disabled>Selecione seu Estado</option>
           <option value="AC" <%- (testamento && testamento.uf == "AC" ? 'selected="selected"' : '') %>>AC - Acre</option>
           <option value="AL" <%- (testamento && testamento.uf == "AL" ? 'selected="selected"' : '') %>>AL - Alagoas</option>
@@ -79,59 +95,74 @@
           <option value="SP" <%- (testamento && testamento.uf == "SP" ? 'selected="selected"' : '') %>>SP - São Paulo</option>
           <option value="SE" <%- (testamento && testamento.uf == "SE" ? 'selected="selected"' : '') %>>SE - Sergipe</option>
           <option value="TO" <%- (testamento && testamento.uf == "TO" ? 'selected="selected"' : '') %>>TO - Tocantins</option>
-        </select>
-      </div>
-    </div>
+            </select>
+          </div>
+        </div>
 
-    <!-- Representante Legal -->
-    <h5 class="mb-3">Representante Legal</h5>
-    <div class="mb-3">
-      <label for="representante" class="form-label">Nome do Representante Legal</label>
-      <input type="text" class="form-control" id="representante" name="representante" placeholder="Nome completo do representante" required>
-    </div>
-    <div class="row mb-4">
-      <div class="col-md-6 mb-3">
-        <label for="relacaoRep" class="form-label">Parentesco/Relação</label>
-        <select id="relacaoRep" name="relacao_parentesco" class="form-select">
-          <option value="" disabled>Selecione</option>
-          <option value="Cônjuge" <%- (testamento && testamento.relacao_parentesco == "Cônjuge" ? 'selected="selected"' : '') %>>Cônjuge</option>
-          <option value="Filho(a)" <%- (testamento && testamento.relacao_parentesco == "Filho(a)" ? 'selected="selected"' : '') %>>Filho(a)</option>
-          <option value="Pai/Mãe" <%- (testamento && testamento.relacao_parentesco == "Pai/Mãe" ? 'selected="selected"' : '') %>>Pai/Mãe</option>
-          <option value="Irmão/Irmã" <%- (testamento && testamento.relacao_parentesco == "Irmão/Irmã" ? 'selected="selected"' : '') %>>Irmão/Irmã</option>
-          <option value="Amigo(a)" <%- (testamento && testamento.relacao_parentesco == "Amigo(a)" ? 'selected="selected"' : '') %>>Amigo(a)</option>
-          <option value="Outro" <%- (testamento && testamento.relacao_parentesco == "Outro" ? 'selected="selected"' : '') %>>Outro</option>
-        </select>
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="representanteTel" class="form-label">Telefone do Representante</label>
-        <input type="tel" class="form-control" id="representanteTel" name="telefone_representante" placeholder="(DD) 00000-0000">
-      </div>
+        <!-- Representante Legal -->
+        <h5 class="mb-3">Representante Legal</h5>
+
+        <div class="mb-3">
+          <label for="representante" class="form-label">Nome do Representante Legal</label>
+          <input type="text" class="form-control" id="representante" name="representante_nome"
+            placeholder="Nome completo do representante" required
+            value="<%= (testamento ? testamento.representante_nome : '') %>" />
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6 mb-3">
+            <label for="inputRelacaoRep" class="form-label">Parentesco/Relação</label> <!--pedir ajuda do Rafa-->
+            <select id="inputRelacaoRep" name="relacao_representante" class="form-select">
+              <option value="" selected disabled>Selecione</option>
+              <option>Cônjuge</option>
+              <option>Filho(a)</option>
+              <option>Pai/Mãe</option>
+              <option>Irmão/Irmã</option>
+              <option>Amigo(a)</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="inputRepresentanteTel" class="form-label">Telefone do Representante</label>
+            <input type="tel" class="form-control" id="inputeRepresentanteTel" name="representante_telefone"
+              placeholder="(DD) 00000-0000" required
+              value="<%= (testamento ? testamento.representante_telefone : '') %>" />
+          </div>
+
+        </div>
     </div>
 
     <!-- Preferências de Tratamento -->
     <h5 class="mb-3">Preferências de Tratamento</h5>
     <!-- Cenários aplicáveis -->
+    
     <div class="mb-3">
       <label class="form-label">Cenários em que as diretivas se aplicam:</label>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="cenario1" name="cenario">
         <label class="form-check-label" for="cenario1">Doença terminal incurável</label>
       </div>
+      
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="cenario2" name="cenario">
         <label class="form-check-label" for="cenario2">Estado vegetativo permanente</label>
       </div>
+      
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="cenario3" name="cenario">
         <label class="form-check-label" for="cenario3">Condição de saúde irreversível sem cura</label>
       </div>
+      
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="cenarioOutro" name="cenario">
         <label class="form-check-label" for="cenarioOutro">Outros (especificar)</label>
       </div>
       <!-- Campo extra para "Outros cenários", oculto por padrão -->
-      <input type="text" class="form-control mt-2" id="cenarioOutroTexto" name="cenario_outro" placeholder="Descreva outros cenários..." style="display: none;">
+      <input type="text" class="form-control mt-2" id="cenarioOutroTexto" name="cenario_outro"
+        placeholder="Descreva outros cenários..." style="display: none;">
     </div>
+    
+    
     <!-- Suporte e Ressuscitação -->
     <div class="mb-3">
       <label class="form-label">Suporte/Ressuscitação (RCP):</label>
@@ -148,14 +179,16 @@
         <label class="form-check-label" for="rcpCondicional">Aceito apenas em condições específicas</label>
       </div>
       <!-- Textarea para condições específicas de RCP, oculta inicialmente -->
-      <textarea class="form-control mt-2" id="condicoesRCP" name="condicoes_rcp" rows="2" placeholder="Especifique as condições..." style="display: none;"></textarea>
+      <textarea class="form-control mt-2" id="condicoesRCP" name="condicoes_rcp" rows="2"
+        placeholder="Especifique as condições..." style="display: none;"></textarea>
     </div>
     <!-- Hidratação e Nutrição -->
     <div class="mb-3">
       <label class="form-label">Hidratação e Nutrição Artificiais:</label>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="hidratacao" id="hidratacaoSim" value="sim" checked>
-        <label class="form-check-label" for="hidratacaoSim">Desejo receber hidratação/nutrição artificial, se necessário</label>
+        <label class="form-check-label" for="hidratacaoSim">Desejo receber hidratação/nutrição artificial, se
+          necessário</label>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="hidratacao" id="hidratacaoNao" value="nao">
@@ -164,13 +197,15 @@
     </div>
     <!-- Valores e Prioridades -->
     <div class="mb-3">
-      <label for="valores" class="form-label">Valores e Prioridades (diretrizes gerais):</label>
-      <textarea class="form-control" id="valores" name="valores" rows="3" placeholder="Descreva seus valores pessoais e prioridades..."></textarea>
+      <label for="inputValores" class="form-label">Valores e Prioridades (diretrizes gerais):</label>
+      <textarea class="form-control" id="inputValores" name="valores" rows="3"
+        placeholder="Descreva seus valores pessoais e prioridades..."></textarea>
     </div>
     <!-- Aspectos Religiosos/Espirituais -->
     <div class="mb-4">
-      <label for="religioso" class="form-label">Aspectos Religiosos/Espirituais:</label>
-      <textarea class="form-control" id="religioso" name="religioso" rows="3" placeholder="Descreva instruções de cunho religioso ou filosófico..."></textarea>
+      <label for="inputReligioso" class="form-label">Aspectos Religiosos/Espirituais:</label>
+      <textarea class="form-control" id="inputReligioso" name="religioso" rows="3"
+        placeholder="Descreva instruções de cunho religioso ou filosófico..."></textarea>
     </div>
 
     <!-- Doação de Órgãos/Tecidos -->
@@ -220,21 +255,25 @@
     <div class="row mb-3">
       <div class="col-md-6 mb-3">
         <label for="testemunha1" class="form-label">Nome da Testemunha 1</label>
-        <input type="text" class="form-control" id="testemunha1" name="testemunha1" placeholder="Nome completo da primeira testemunha">
+        <input type="text" class="form-control" id="testemunha1" name="testemunha1"
+          placeholder="Nome completo da primeira testemunha">
       </div>
       <div class="col-md-6 mb-3">
         <label for="testemunha1Cpf" class="form-label">CPF da Testemunha 1</label>
-        <input type="text" class="form-control" id="testemunha1Cpf" name="testemunha1_cpf" placeholder="000.000.000-00" maxlength="14">
+        <input type="text" class="form-control" id="testemunha1Cpf" name="testemunha1_cpf" placeholder="000.000.000-00"
+          maxlength="14">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-6 mb-3">
         <label for="testemunha2" class="form-label">Nome da Testemunha 2</label>
-        <input type="text" class="form-control" id="testemunha2" name="testemunha2" placeholder="Nome completo da segunda testemunha">
+        <input type="text" class="form-control" id="testemunha2" name="testemunha2"
+          placeholder="Nome completo da segunda testemunha">
       </div>
       <div class="col-md-6 mb-3">
         <label for="testemunha2Cpf" class="form-label">CPF da Testemunha 2</label>
-        <input type="text" class="form-control" id="testemunha2Cpf" name="testemunha2_cpf" placeholder="000.000.000-00" maxlength="14">
+        <input type="text" class="form-control" id="testemunha2Cpf" name="testemunha2_cpf" placeholder="000.000.000-00"
+          maxlength="14">
       </div>
     </div>
 
@@ -254,12 +293,16 @@
     </div>
     <div class="mb-4">
       <label for="assinatura" class="form-label">Assinatura (digite seu nome completo):</label>
-      <input type="text" class="form-control" id="assinatura" name="assinatura" placeholder="Assine aqui digitando seu nome completo" required>
+      <input type="text" class="form-control" id="assinatura" name="assinatura"
+        placeholder="Assine aqui digitando seu nome completo" required>
     </div>
 
     <!-- Botão de envio -->
-    <button type="submit" class="btn btn-primary">Enviar</button>
-  </form>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" onclick="criarTestamento()">Criar Testamento</button>
+    </div>
+    <!-- <button type="submit" class="btn btn-primary">Enviar</button>-->
+    </form>
 </div>
 
 <!-- Bootstrap 5 JS bundle (opcional, para funcionalidade dos componentes do Bootstrap) -->
@@ -314,6 +357,7 @@
   });
 </script>
 </body>
+
 </html>
 
 
