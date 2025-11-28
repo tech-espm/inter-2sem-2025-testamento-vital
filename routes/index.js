@@ -24,7 +24,10 @@ router.get("/meutestamento", wrap(async (req, res) => {
 
 	await sql.connect(async sql => {
 		//tudo aqui dentro é executado com a conexão aberta.
-	produtos = await sql.query("select id, nome, email, telefone from pessoa");
+	//produtos = await sql.query("select id, nome, email, telefone, endereco, uf, representante_nome, representante_parentesco, 
+	// representante_telefone, doenca_terminal, estado_vegetativo, condicao_irreversivel, outros, rcp, nutricao_artificial, 
+	// valores_prioridades, aspectos_religiosos, doacao_orgaos, testemunha1_nome, testemunha1_cpf, testemunha2_nome, 
+	// testemunha2_cpf from testamento");
 	});
 
 	let produtoA = {
@@ -49,7 +52,8 @@ router.get("/meutestamento", wrap(async (req, res) => {
 
 	let opcoes = {
 		titulo: "Listagem de Produtos",
-		produtos: produtosVindosDoBanco
+		produtos: produtosVindosDoBanco,
+		testamento: null,
 	};
 
 	res.render("index/meutestamento", opcoes);

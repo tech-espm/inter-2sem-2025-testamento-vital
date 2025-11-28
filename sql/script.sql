@@ -23,7 +23,7 @@ CREATE TABLE testamento (
   doenca_terminal tinyint NOT NULL,
   estado_vegetativo tinyint NOT NULL,
   condicao_irreversivel tinyint NOT NULL,
-  outros text NULL,
+  incapacidade_temporaria tinyint NOT NULL,
   rcp tinyint NOT NULL,
   nutricao_artificial tinyint NOT NULL,
   valores_prioridades text NULL,

@@ -37,37 +37,37 @@
 
         <div class="row mb-3">
           <div class="col-md-6 mb-3">
-            <label for="cpf" class="form-label">CPF</label>
-            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14"
+            <label for="inputCpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="inputCpf" placeholder="000.000.000-00" maxlength="14"
               required value="<%= (testamento ? testamento.cpf : '') %>" />
           </div>
 
           <div class="col-md-6 mb-3">
-            <label for="nascimento" class="form-label">Data de Nascimento</label>
-            <input type="datetime" class="form-control" id="nascimento" name="data_nascimento" required
+            <label for="inputNascimento" class="form-label">Data de Nascimento</label>
+            <input type="datetime" class="form-control" id="inputNascimento" name="data_nascimento" placeholder="dd/mm/aaaa" required
               value="<%= (testamento ? testamento.nascimento : '') %>" />
           </div>
         </div>
 
         <div class="row mb-3">
           <div class="col-md-6 mb-3">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(DD) 00000-0000"
+            <label for="inputTelefone" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="inputTelefone" name="telefone" placeholder="(DD) 00000-0000"
               value="<%= (testamento ? testamento.telefone : '') %>" />
           </div>
 
           <div class="col-md-6 mb-3">
-            <label for="endereco" class="form-label">Endereço</label>
-            <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, Número, Cidade"
+            <label for="inputEndereco" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="inputEndereco" name="endereco" placeholder="Rua, Número, Cidade"
               required value="<%= (testamento ? testamento.endereco : '') %>" />
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col-md-6 mb-3">
-            <label for="uf" class="form-label">Estado (UF)</label> <!-- pedir ajuda do Rafa nesse-->
-            <select id="uf" name="uf" class="form-select" required>
-          <option value="" disabled>Selecione seu Estado</option>
+            <label for="inputUf" class="form-label">Estado (UF)</label> <!-- pedir ajuda do Rafa nesse-->
+            <select id="inputUf" name="uf" class="form-select" required>
+          <option value="" hidden>Selecione seu Estado</option>
           <option value="AC" <%- (testamento && testamento.uf == "AC" ? 'selected="selected"' : '') %>>AC - Acre</option>
           <option value="AL" <%- (testamento && testamento.uf == "AL" ? 'selected="selected"' : '') %>>AL - Alagoas</option>
           <option value="AP" <%- (testamento && testamento.uf == "AP" ? 'selected="selected"' : '') %>>AP - Amapá</option>
@@ -103,8 +103,8 @@
         <h5 class="mb-3">Representante Legal</h5>
 
         <div class="mb-3">
-          <label for="representante" class="form-label">Nome do Representante Legal</label>
-          <input type="text" class="form-control" id="representante" name="representante_nome"
+          <label for="inputRepresentante" class="form-label">Nome do Representante Legal</label>
+          <input type="text" class="form-control" id="inputRepresentante" name="representante_nome"
             placeholder="Nome completo do representante" required
             value="<%= (testamento ? testamento.representante_nome : '') %>" />
         </div>
@@ -112,14 +112,14 @@
         <div class="row mb-4">
           <div class="col-md-6 mb-3">
             <label for="inputRelacaoRep" class="form-label">Parentesco/Relação</label> <!--pedir ajuda do Rafa-->
-            <select id="inputRelacaoRep" name="relacao_representante" class="form-select">
-              <option value="" selected disabled>Selecione</option>
-              <option>Cônjuge</option>
-              <option>Filho(a)</option>
-              <option>Pai/Mãe</option>
-              <option>Irmão/Irmã</option>
-              <option>Amigo(a)</option>
-              <option>Outro</option>
+            <select id="inputRelacaoRep" name="representante_parentesco" class="form-select">
+              <option value="" hidden>Selecione</option>
+              <option value="Cônjuge" <%- (testamento && testamento.representante_parentesco == "Cônjuge" ? 'selected="selected"' : '') %>>Cônjuge</option>
+              <option value="Filho" <%- (testamento && testamento.representante_parentesco == "Filho" ? 'selected="selected"' : '') %>>Filho</option>
+              <option value="Pai/Mãe" <%- (testamento && testamento.representante_parentesco == "Pai/Mãe"  ? 'selected="selected"' : '') %>>Pai/Mãe</option>
+              <option value="Irmão/Irmã" <%- (testamento && testamento.representante_parentesco == "Irmão/Irmã"  ? 'selected="selected"' : '') %>>Irmão/Irmã</option>
+              <option value="Amigo(a)" <%- (testamento && testamento.representante_parentesco == "Amigo(a)"  ? 'selected="selected"' : '') %>>Amigo(a)</option>
+              <option value="Outro" <%- (testamento && testamento.representante_parentesco == "Outro"  ? 'selected="selected"' : '') %>>Outro</option>
             </select>
           </div>
           <div class="col-md-6 mb-3">
@@ -137,116 +137,67 @@
     <!-- Cenários aplicáveis -->
     
     <div class="mb-3">
-      <label class="form-label">Cenários em que as diretivas se aplicam:</label>
+      <label class="form-label"><b>Cenários em que as diretivas se aplicam:</b></label>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="cenario1" name="cenario">
-        <label class="form-check-label" for="cenario1">Doença terminal incurável</label>
+        <input class="form-check-input" type="checkbox" id="inputDoencaTerminal" name="doenca_terminal" <%- ((testamento && testamento.doenca_terminal) ? 'checked="checked"' : '') %>>
+        <label class="form-check-label" for="inputDoencaTerminal">Doença terminal incurável</label>
       </div>
       
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="cenario2" name="cenario">
-        <label class="form-check-label" for="cenario2">Estado vegetativo permanente</label>
+        <input class="form-check-input" type="checkbox" id="inputEstadoVegetativo" name="estado_vegetativo" <%- ((testamento && testamento.estado_vegetativo) ? 'checked="checked"' : '') %> >
+        <label class="form-check-label" for="inputEstadoVegetativo">Estado vegetativo permanente</label>
       </div>
       
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="cenario3" name="cenario">
-        <label class="form-check-label" for="cenario3">Condição de saúde irreversível sem cura</label>
+        <input class="form-check-input" type="checkbox" id="inputCondicaoIrreversivel" name="condicao_irreversivel"  <%- ((testamento && testamento.condicao_irreversivel) ? 'checked="checked"' : '') %>>
+        <label class="form-check-label" for="inputCondicaoIrreversivel">Condição de saúde irreversível sem cura</label>
       </div>
       
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="cenarioOutro" name="cenario">
-        <label class="form-check-label" for="cenarioOutro">Outros (especificar)</label>
-      </div>
-      <!-- Campo extra para "Outros cenários", oculto por padrão -->
-      <input type="text" class="form-control mt-2" id="cenarioOutroTexto" name="cenario_outro"
-        placeholder="Descreva outros cenários..." style="display: none;">
+        <input class="form-check-input" type="checkbox" id="inputIncapacidadeTemporaria" name="incapacidade_temporaria"  <%- ((testamento && testamento.outros) ? 'checked="checked"' : '') %>>
+        <label class="form-check-label" for="inputIncapacidadeTemporaria"> Condição de incapacidade temporária de exprimir vontade </label>
+      </div> 
+    
     </div>
     
     
     <!-- Suporte e Ressuscitação -->
     <div class="mb-3">
-      <label class="form-label">Suporte/Ressuscitação (RCP):</label>
+      <label class="form-label"><b>Suporte/Ressuscitação (RCP):</b></label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="ressuscitacao" id="rcpSim" value="sim" checked>
-        <label class="form-check-label" for="rcpSim">Aceito manobras de ressuscitação</label>
+        <input class="form-check-input" type="checkbox" id= "inputRcp" name="rcp" <%- ((testamento && testamento.rcp) ? 'checked="checked"' : '') %> >
+        <label class="form-check-label" for="inputRcp">Aceito manobras de ressuscitação</label>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="ressuscitacao" id="rcpNao" value="nao">
-        <label class="form-check-label" for="rcpNao">Recuso ressuscitação cardiopulmonar</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="ressuscitacao" id="rcpCondicional" value="condicional">
-        <label class="form-check-label" for="rcpCondicional">Aceito apenas em condições específicas</label>
-      </div>
-      <!-- Textarea para condições específicas de RCP, oculta inicialmente -->
-      <textarea class="form-control mt-2" id="condicoesRCP" name="condicoes_rcp" rows="2"
-        placeholder="Especifique as condições..." style="display: none;"></textarea>
-    </div>
+      
+
     <!-- Hidratação e Nutrição -->
     <div class="mb-3">
-      <label class="form-label">Hidratação e Nutrição Artificiais:</label>
+      <label class="form-label"><b>Nutrição/Hidratação Artificial:</b></label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="hidratacao" id="hidratacaoSim" value="sim" checked>
-        <label class="form-check-label" for="hidratacaoSim">Desejo receber hidratação/nutrição artificial, se
-          necessário</label>
+        <input class="form-check-input" type="checkbox" id="inputNutricaoArtificial" name="nutricao_artificial" <%- ((testamento && testamento.nutricao_artificial) ? 'checked="checked"' : '') %> >
+        <label class="form-check-label" for="inputNutricaoArtificiail">Aceito nutrição e hidratação artificial</label>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="hidratacao" id="hidratacaoNao" value="nao">
-        <label class="form-check-label" for="hidratacaoNao">Não desejo hidratação/nutrição artificial</label>
       </div>
     </div>
     <!-- Valores e Prioridades -->
     <div class="mb-3">
-      <label for="inputValores" class="form-label">Valores e Prioridades (diretrizes gerais):</label>
-      <textarea class="form-control" id="inputValores" name="valores" rows="3"
-        placeholder="Descreva seus valores pessoais e prioridades..."></textarea>
+      <label for="inputValores" class="form-label"><b>Valores e Prioridades (diretrizes gerais): </b></label>
+      <textarea class="form-control" id="inputValoresPrioridades" name="valores_prioridades" rows="3"
+        placeholder="Descreva seus valores pessoais e prioridades..."> <%= (testamento ? testamento.valores_prioridades : '') %> </textarea> 
     </div>
     <!-- Aspectos Religiosos/Espirituais -->
     <div class="mb-4">
-      <label for="inputReligioso" class="form-label">Aspectos Religiosos/Espirituais:</label>
-      <textarea class="form-control" id="inputReligioso" name="religioso" rows="3"
-        placeholder="Descreva instruções de cunho religioso ou filosófico..."></textarea>
+      <label for="inputReligioso" class="form-label"><b>Aspectos Religiosos/Espirituais:</b></label>
+      <textarea class="form-control" id="inputReligioso" name="aspectos_religiosos" rows="3"
+        placeholder="Descreva instruções de cunho religioso ou filosófico..."> <%= (testamento ? testamento.aspectos_religiosos : '') %> </textarea>
     </div>
 
     <!-- Doação de Órgãos/Tecidos -->
     <h5 class="mb-3">Doação de Órgãos/Tecidos</h5>
     <div class="mb-3">
-      <label class="form-label d-block">Deseja permitir doação de órgãos e tecidos?</label>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="doacao" id="doacaoSim" value="sim">
-        <label class="form-check-label" for="doacaoSim">Sim</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="doacao" id="doacaoNao" value="nao" checked>
-        <label class="form-check-label" for="doacaoNao">Não</label>
-      </div>
-      <!-- Lista de órgãos/tecidos, oculta por padrão -->
-      <div id="orgaosLista" class="mt-3" style="display: none;">
-        <p class="mb-1">Quais órgãos/tecidos você autoriza doar:</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="orgao1" name="orgaos[]" value="coracao">
-          <label class="form-check-label" for="orgao1">Coração</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="orgao2" name="orgaos[]" value="pulmoes">
-          <label class="form-check-label" for="orgao2">Pulmões</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="orgao3" name="orgaos[]" value="rins">
-          <label class="form-check-label" for="orgao3">Rins</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="orgao4" name="orgaos[]" value="figado">
-          <label class="form-check-label" for="orgao4">Fígado</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="orgao5" name="orgaos[]" value="corneas">
-          <label class="form-check-label" for="orgao5">Córneas</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="orgao6" name="orgaos[]" value="outros">
-          <label class="form-check-label" for="orgao6">Outros (demais órgãos ou tecidos)</label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="doacao_orgaos" id="inputDoacaoOrgaos" <%- ((testamento && testamento.doacao_orgaos) ? 'checked="checked"' : '') %> >
+        <label class="form-check-label" for="inputDoacaoOrgaos">Permito doação de órgãos e tecidos</label>
       </div>
     </div>
 
@@ -254,26 +205,26 @@
     <h5 class="mb-3">Testemunhas</h5>
     <div class="row mb-3">
       <div class="col-md-6 mb-3">
-        <label for="testemunha1" class="form-label">Nome da Testemunha 1</label>
-        <input type="text" class="form-control" id="testemunha1" name="testemunha1"
-          placeholder="Nome completo da primeira testemunha">
+        <label for="inputTestemunha1" class="form-label">Nome da Testemunha 1</label>
+        <input type="text" class="form-control" id="inputTestemunha1" name="testemunha1"
+          placeholder="Nome completo da primeira testemunha" value="<%= (testamento ? testamento.testemunha1_nome : '') %>" />
       </div>
       <div class="col-md-6 mb-3">
-        <label for="testemunha1Cpf" class="form-label">CPF da Testemunha 1</label>
-        <input type="text" class="form-control" id="testemunha1Cpf" name="testemunha1_cpf" placeholder="000.000.000-00"
-          maxlength="14">
+        <label for="inputTestemunha1Cpf" class="form-label">CPF da Testemunha 1</label>
+        <input type="text" class="form-control" id="inputTestemunha1Cpf" name="testemunha1_cpf" placeholder="000.000.000-00"
+          maxlength="14" value="<%= (testamento ? testamento.testemunha1_cpf: '') %>" />
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-6 mb-3">
-        <label for="testemunha2" class="form-label">Nome da Testemunha 2</label>
-        <input type="text" class="form-control" id="testemunha2" name="testemunha2"
-          placeholder="Nome completo da segunda testemunha">
+        <label for="inputTestemunha2" class="form-label">Nome da Testemunha 2</label>
+        <input type="text" class="form-control" id="inputTestemunha2" name="testemunha2"
+          placeholder="Nome completo da segunda testemunha" value="<%= (testamento ? testamento.testemunha2_nome : '') %>" />
       </div>
       <div class="col-md-6 mb-3">
-        <label for="testemunha2Cpf" class="form-label">CPF da Testemunha 2</label>
-        <input type="text" class="form-control" id="testemunha2Cpf" name="testemunha2_cpf" placeholder="000.000.000-00"
-          maxlength="14">
+        <label for="inputTestemunha2Cpf" class="form-label">CPF da Testemunha 2</label>
+        <input type="text" class="form-control" id="inputTestemunha2Cpf" name="testemunha2_cpf" placeholder="000.000.000-00"
+          maxlength="14" value="<%= (testamento ? testamento.testemunha2_cpf : '') %>" />
       </div>
     </div>
 
@@ -310,51 +261,8 @@
 
 <!-- Script JavaScript para comportamentos dinâmicos do formulário -->
 <script>
-  // Quando o checkbox "Outros" em Cenários for marcado, mostrar o campo de texto para especificar
-  const cenarioOutroCheckbox = document.getElementById('cenarioOutro');
-  const cenarioOutroTexto = document.getElementById('cenarioOutroTexto');
-  cenarioOutroCheckbox.addEventListener('change', function () {
-    if (this.checked) {
-      cenarioOutroTexto.style.display = 'block';
-      cenarioOutroTexto.focus();
-    } else {
-      cenarioOutroTexto.value = '';
-      cenarioOutroTexto.style.display = 'none';
-    }
-  });
+ 
 
-  // Quando a opção "Condicional" de RCP for selecionada, exibir textarea para condições específicas
-  const rcpRadios = document.querySelectorAll('input[name="ressuscitacao"]');
-  const condicoesRCP = document.getElementById('condicoesRCP');
-  rcpRadios.forEach(radio => {
-    radio.addEventListener('change', function () {
-      if (document.getElementById('rcpCondicional').checked) {
-        condicoesRCP.style.display = 'block';
-        condicoesRCP.focus();
-      } else {
-        condicoesRCP.value = '';
-        condicoesRCP.style.display = 'none';
-      }
-    });
-  });
-
-  // Mostrar/ocultar lista de órgãos para doação dependendo da escolha do usuário
-  const doacaoSim = document.getElementById('doacaoSim');
-  const doacaoNao = document.getElementById('doacaoNao');
-  const orgaosLista = document.getElementById('orgaosLista');
-  doacaoSim.addEventListener('change', function () {
-    if (this.checked) {
-      orgaosLista.style.display = 'block';
-    }
-  });
-  doacaoNao.addEventListener('change', function () {
-    if (this.checked) {
-      // Oculta a lista de órgãos e desmarca quaisquer seleções feitas
-      orgaosLista.style.display = 'none';
-      const organCheckboxes = orgaosLista.querySelectorAll('input[type="checkbox"]');
-      organCheckboxes.forEach(chk => chk.checked = false);
-    }
-  });
 </script>
 </body>
 
