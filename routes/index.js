@@ -65,7 +65,7 @@ router.get("/meutestamento", wrap(async (req, res) => {
 	let lista;
 
 	await sql.connect(async sql => {
-		lista = await sql.query("select id, nome, email, cpf, nascimento, telefone, endereco, uf, representante_nome, representante_parentesco, representante_telefone, doenca_terminal, estado_vegetativo, condicao_irreversivel, incapacidade_temporaria, rcp, nutricao_artificial, valores_prioridades, aspectos_religiosos, doacao_orgaos, testemunha1_nome, testemunha1_cpf, testemunha2_nome, testemunha2_cpf from testamento");
+		lista = await sql.query("select id, nome, email, cpf, date_format(nascimento, '%Y-%m-%d') nascimento, telefone, endereco, uf, representante_nome, representante_parentesco, representante_telefone, doenca_terminal, estado_vegetativo, condicao_irreversivel, incapacidade_temporaria, rcp, nutricao_artificial, valores_prioridades, aspectos_religiosos, doacao_orgaos, testemunha1_nome, testemunha1_cpf, testemunha2_nome, testemunha2_cpf from testamento");
 	});
 
 	let testamento = null;
@@ -188,7 +188,7 @@ router.post("/api/criartestamento", wrap(async (req, res) => {
 
 			await sql.query("update testamento set nome = ?, email = ?, cpf = ?, nascimento = ?, telefone = ?, endereco = ?, uf = ?, representante_nome = ?, representante_parentesco = ?, representante_telefone = ?, doenca_terminal = ?, estado_vegetativo = ?, condicao_irreversivel = ?, incapacidade_temporaria = ?, rcp = ? , nutricao_artificial = ?, valores_prioridades = ?, aspectos_religiosos = ?, doacao_orgaos = ?, testemunha1_nome = ?, testemunha1_cpf = ?, testemunha2_nome = ?, testemunha2_cpf = ? where id = ?", parametros);
 		} else {
-			await sql.query("insert into testamento (nome, email,  cpf, nascimento, telefone, endereco, uf, representante_nome, representante_parentesco, representante_telefone, doenca_terminal, estado_vegetativo, condicao_irreversivel, incapacidade_temporaria, rcp, nutricao_artificial, valores_prioridades, aspectos_religiosos, doacao_orgaos, testemunha1_nome, testemunha1_cpf, testemunha2_nome, testemunha2_cpf) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? parametros);
+			await sql.query("insert into testamento (nome, email,  cpf, nascimento, telefone, endereco, uf, representante_nome, representante_parentesco, representante_telefone, doenca_terminal, estado_vegetativo, condicao_irreversivel, incapacidade_temporaria, rcp, nutricao_artificial, valores_prioridades, aspectos_religiosos, doacao_orgaos, testemunha1_nome, testemunha1_cpf, testemunha2_nome, testemunha2_cpf) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", parametros);
 			let lista = await sql.query("select last_insert_id() id");
 			testamento.id = lista[0].id;
 		}
