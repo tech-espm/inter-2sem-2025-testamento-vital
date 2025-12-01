@@ -30,22 +30,22 @@
 
           <div class="col-md-6 mb-3">
             <label for="inputEmail" class="form-label">E-mail</label>
-            <input class="form-control" type="email" maxlength="100" id="inputEmail" name="email" placeholder="seu@email.com"
-              required value="<%= (testamento ? testamento.email : '') %>" />
+            <input class="form-control" type="email" maxlength="100" id="inputEmail" name="email"
+              placeholder="seu@email.com" required value="<%= (testamento ? testamento.email : '') %>" />
           </div>
         </div>
 
         <div class="row mb-3">
           <div class="col-md-6 mb-3">
             <label for="inputCpf" class="form-label">CPF</label>
-            <input type="text" class="form-control" id="cpf" name="inputCpf" placeholder="000.000.000-00" maxlength="14"
+            <input type="text" class="form-control" id="inputCpf" name="cpf" placeholder="000.000.000-00" maxlength="14"
               required value="<%= (testamento ? testamento.cpf : '') %>" />
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="inputNascimento" class="form-label">Data de Nascimento</label>
-            <input type="datetime" class="form-control" id="inputNascimento" name="data_nascimento" placeholder="dd/mm/aaaa" required
-              value="<%= (testamento ? testamento.nascimento : '') %>" />
+            <input type="datetime" class="form-control" id="inputNascimento" name="data_nascimento"
+              placeholder="dd/mm/aaaa" required value="<%= (testamento ? testamento.nascimento : '') %>" />
           </div>
         </div>
 
@@ -67,34 +67,61 @@
           <div class="col-md-6 mb-3">
             <label for="inputUf" class="form-label">Estado (UF)</label> <!-- pedir ajuda do Rafa nesse-->
             <select id="inputUf" name="uf" class="form-select" required>
-          <option value="" hidden>Selecione seu Estado</option>
-          <option value="AC" <%- (testamento && testamento.uf == "AC" ? 'selected="selected"' : '') %>>AC - Acre</option>
-          <option value="AL" <%- (testamento && testamento.uf == "AL" ? 'selected="selected"' : '') %>>AL - Alagoas</option>
-          <option value="AP" <%- (testamento && testamento.uf == "AP" ? 'selected="selected"' : '') %>>AP - Amapá</option>
-          <option value="AM" <%- (testamento && testamento.uf == "AM" ? 'selected="selected"' : '') %>>AM - Amazonas</option>
-          <option value="BA" <%- (testamento && testamento.uf == "BA" ? 'selected="selected"' : '') %>>BA - Bahia</option>
-          <option value="CE" <%- (testamento && testamento.uf == "CE" ? 'selected="selected"' : '') %>>CE - Ceará</option>
-          <option value="DF" <%- (testamento && testamento.uf == "DF" ? 'selected="selected"' : '') %>>DF - Distrito Federal</option>
-          <option value="ES" <%- (testamento && testamento.uf == "ES" ? 'selected="selected"' : '') %>>ES - Espírito Santo</option>
-          <option value="GO" <%- (testamento && testamento.uf == "GO" ? 'selected="selected"' : '') %>>GO - Goiás</option>
-          <option value="MA" <%- (testamento && testamento.uf == "MA" ? 'selected="selected"' : '') %>>MA - Maranhão</option>
-          <option value="MT" <%- (testamento && testamento.uf == "MT" ? 'selected="selected"' : '') %>>MT - Mato Grosso</option>
-          <option value="MS" <%- (testamento && testamento.uf == "MS" ? 'selected="selected"' : '') %>>MS - Mato Grosso do Sul</option>
-          <option value="MG" <%- (testamento && testamento.uf == "MG" ? 'selected="selected"' : '') %>>MG - Minas Gerais</option>
-          <option value="PA" <%- (testamento && testamento.uf == "PA" ? 'selected="selected"' : '') %>>PA - Pará</option>
-          <option value="PB" <%- (testamento && testamento.uf == "PB" ? 'selected="selected"' : '') %>>PB - Paraíba</option>
-          <option value="PR" <%- (testamento && testamento.uf == "PR" ? 'selected="selected"' : '') %>>PR - Paraná</option>
-          <option value="PE" <%- (testamento && testamento.uf == "PE" ? 'selected="selected"' : '') %>>PE - Pernambuco</option>
-          <option value="PI" <%- (testamento && testamento.uf == "PI" ? 'selected="selected"' : '') %>>PI - Piauí</option>
-          <option value="RJ" <%- (testamento && testamento.uf == "RJ" ? 'selected="selected"' : '') %>>RJ - Rio de Janeiro</option>
-          <option value="RN" <%- (testamento && testamento.uf == "RN" ? 'selected="selected"' : '') %>>RN - Rio Grande do Norte</option>
-          <option value="RS" <%- (testamento && testamento.uf == "RS" ? 'selected="selected"' : '') %>>RS - Rio Grande do Sul</option>
-          <option value="RO" <%- (testamento && testamento.uf == "RO" ? 'selected="selected"' : '') %>>RO - Rondônia</option>
-          <option value="RR" <%- (testamento && testamento.uf == "RR" ? 'selected="selected"' : '') %>>RR - Roraima</option>
-          <option value="SC" <%- (testamento && testamento.uf == "SC" ? 'selected="selected"' : '') %>>SC - Santa Catarina</option>
-          <option value="SP" <%- (testamento && testamento.uf == "SP" ? 'selected="selected"' : '') %>>SP - São Paulo</option>
-          <option value="SE" <%- (testamento && testamento.uf == "SE" ? 'selected="selected"' : '') %>>SE - Sergipe</option>
-          <option value="TO" <%- (testamento && testamento.uf == "TO" ? 'selected="selected"' : '') %>>TO - Tocantins</option>
+              <option value="" hidden>Selecione seu Estado</option>
+              <option value="AC" <%- (testamento && testamento.uf=="AC" ? 'selected="selected"' : '' ) %>>AC - Acre
+              </option>
+              <option value="AL" <%- (testamento && testamento.uf=="AL" ? 'selected="selected"' : '' ) %>>AL - Alagoas
+              </option>
+              <option value="AP" <%- (testamento && testamento.uf=="AP" ? 'selected="selected"' : '' ) %>>AP - Amapá
+              </option>
+              <option value="AM" <%- (testamento && testamento.uf=="AM" ? 'selected="selected"' : '' ) %>>AM - Amazonas
+              </option>
+              <option value="BA" <%- (testamento && testamento.uf=="BA" ? 'selected="selected"' : '' ) %>>BA - Bahia
+              </option>
+              <option value="CE" <%- (testamento && testamento.uf=="CE" ? 'selected="selected"' : '' ) %>>CE - Ceará
+              </option>
+              <option value="DF" <%- (testamento && testamento.uf=="DF" ? 'selected="selected"' : '' ) %>>DF - Distrito
+                Federal</option>
+              <option value="ES" <%- (testamento && testamento.uf=="ES" ? 'selected="selected"' : '' ) %>>ES - Espírito
+                Santo</option>
+              <option value="GO" <%- (testamento && testamento.uf=="GO" ? 'selected="selected"' : '' ) %>>GO - Goiás
+              </option>
+              <option value="MA" <%- (testamento && testamento.uf=="MA" ? 'selected="selected"' : '' ) %>>MA - Maranhão
+              </option>
+              <option value="MT" <%- (testamento && testamento.uf=="MT" ? 'selected="selected"' : '' ) %>>MT - Mato
+                Grosso</option>
+              <option value="MS" <%- (testamento && testamento.uf=="MS" ? 'selected="selected"' : '' ) %>>MS - Mato
+                Grosso do Sul</option>
+              <option value="MG" <%- (testamento && testamento.uf=="MG" ? 'selected="selected"' : '' ) %>>MG - Minas
+                Gerais</option>
+              <option value="PA" <%- (testamento && testamento.uf=="PA" ? 'selected="selected"' : '' ) %>>PA - Pará
+              </option>
+              <option value="PB" <%- (testamento && testamento.uf=="PB" ? 'selected="selected"' : '' ) %>>PB - Paraíba
+              </option>
+              <option value="PR" <%- (testamento && testamento.uf=="PR" ? 'selected="selected"' : '' ) %>>PR - Paraná
+              </option>
+              <option value="PE" <%- (testamento && testamento.uf=="PE" ? 'selected="selected"' : '' ) %>>PE -
+                Pernambuco</option>
+              <option value="PI" <%- (testamento && testamento.uf=="PI" ? 'selected="selected"' : '' ) %>>PI - Piauí
+              </option>
+              <option value="RJ" <%- (testamento && testamento.uf=="RJ" ? 'selected="selected"' : '' ) %>>RJ - Rio de
+                Janeiro</option>
+              <option value="RN" <%- (testamento && testamento.uf=="RN" ? 'selected="selected"' : '' ) %>>RN - Rio
+                Grande do Norte</option>
+              <option value="RS" <%- (testamento && testamento.uf=="RS" ? 'selected="selected"' : '' ) %>>RS - Rio
+                Grande do Sul</option>
+              <option value="RO" <%- (testamento && testamento.uf=="RO" ? 'selected="selected"' : '' ) %>>RO - Rondônia
+              </option>
+              <option value="RR" <%- (testamento && testamento.uf=="RR" ? 'selected="selected"' : '' ) %>>RR - Roraima
+              </option>
+              <option value="SC" <%- (testamento && testamento.uf=="SC" ? 'selected="selected"' : '' ) %>>SC - Santa
+                Catarina</option>
+              <option value="SP" <%- (testamento && testamento.uf=="SP" ? 'selected="selected"' : '' ) %>>SP - São Paulo
+              </option>
+              <option value="SE" <%- (testamento && testamento.uf=="SE" ? 'selected="selected"' : '' ) %>>SE - Sergipe
+              </option>
+              <option value="TO" <%- (testamento && testamento.uf=="TO" ? 'selected="selected"' : '' ) %>>TO - Tocantins
+              </option>
             </select>
           </div>
         </div>
@@ -114,17 +141,23 @@
             <label for="inputRelacaoRep" class="form-label">Parentesco/Relação</label> <!--pedir ajuda do Rafa-->
             <select id="inputRelacaoRep" name="representante_parentesco" class="form-select">
               <option value="" hidden>Selecione</option>
-              <option value="Cônjuge" <%- (testamento && testamento.representante_parentesco == "Cônjuge" ? 'selected="selected"' : '') %>>Cônjuge</option>
-              <option value="Filho" <%- (testamento && testamento.representante_parentesco == "Filho" ? 'selected="selected"' : '') %>>Filho</option>
-              <option value="Pai/Mãe" <%- (testamento && testamento.representante_parentesco == "Pai/Mãe"  ? 'selected="selected"' : '') %>>Pai/Mãe</option>
-              <option value="Irmão/Irmã" <%- (testamento && testamento.representante_parentesco == "Irmão/Irmã"  ? 'selected="selected"' : '') %>>Irmão/Irmã</option>
-              <option value="Amigo(a)" <%- (testamento && testamento.representante_parentesco == "Amigo(a)"  ? 'selected="selected"' : '') %>>Amigo(a)</option>
-              <option value="Outro" <%- (testamento && testamento.representante_parentesco == "Outro"  ? 'selected="selected"' : '') %>>Outro</option>
+              <option value="Cônjuge" <%- (testamento && testamento.representante_parentesco=="Cônjuge"
+                ? 'selected="selected"' : '' ) %>>Cônjuge</option>
+              <option value="Filho" <%- (testamento && testamento.representante_parentesco=="Filho"
+                ? 'selected="selected"' : '' ) %>>Filho</option>
+              <option value="Pai/Mãe" <%- (testamento && testamento.representante_parentesco=="Pai/Mãe"
+                ? 'selected="selected"' : '' ) %>>Pai/Mãe</option>
+              <option value="Irmão/Irmã" <%- (testamento && testamento.representante_parentesco=="Irmão/Irmã"
+                ? 'selected="selected"' : '' ) %>>Irmão/Irmã</option>
+              <option value="Amigo(a)" <%- (testamento && testamento.representante_parentesco=="Amigo(a)"
+                ? 'selected="selected"' : '' ) %>>Amigo(a)</option>
+              <option value="Outro" <%- (testamento && testamento.representante_parentesco=="Outro"
+                ? 'selected="selected"' : '' ) %>>Outro</option>
             </select>
           </div>
           <div class="col-md-6 mb-3">
             <label for="inputRepresentanteTel" class="form-label">Telefone do Representante</label>
-            <input type="tel" class="form-control" id="inputeRepresentanteTel" name="representante_telefone"
+            <input type="tel" class="form-control" id="inputRepresentanteTel" name="representante_telefone"
               placeholder="(DD) 00000-0000" required
               value="<%= (testamento ? testamento.representante_telefone : '') %>" />
           </div>
@@ -135,55 +168,62 @@
     <!-- Preferências de Tratamento -->
     <h5 class="mb-3">Preferências de Tratamento</h5>
     <!-- Cenários aplicáveis -->
-    
+
     <div class="mb-3">
       <label class="form-label"><b>Cenários em que as diretivas se aplicam:</b></label>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="inputDoencaTerminal" name="doenca_terminal" <%- ((testamento && testamento.doenca_terminal) ? 'checked="checked"' : '') %>>
+        <input class="form-check-input" type="checkbox" id="inputDoencaTerminal" name="doenca_terminal" <%- ((testamento
+          && testamento.doenca_terminal) ? 'checked="checked"' : '' ) %>>
         <label class="form-check-label" for="inputDoencaTerminal">Doença terminal incurável</label>
       </div>
-      
+
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="inputEstadoVegetativo" name="estado_vegetativo" <%- ((testamento && testamento.estado_vegetativo) ? 'checked="checked"' : '') %> >
+        <input class="form-check-input" type="checkbox" id="inputEstadoVegetativo" name="estado_vegetativo" <%-
+          ((testamento && testamento.estado_vegetativo) ? 'checked="checked"' : '' ) %> >
         <label class="form-check-label" for="inputEstadoVegetativo">Estado vegetativo permanente</label>
       </div>
-      
+
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="inputCondicaoIrreversivel" name="condicao_irreversivel"  <%- ((testamento && testamento.condicao_irreversivel) ? 'checked="checked"' : '') %>>
+        <input class="form-check-input" type="checkbox" id="inputCondicaoIrreversivel" name="condicao_irreversivel" <%-
+          ((testamento && testamento.condicao_irreversivel) ? 'checked="checked"' : '' ) %>>
         <label class="form-check-label" for="inputCondicaoIrreversivel">Condição de saúde irreversível sem cura</label>
       </div>
-      
+
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="inputIncapacidadeTemporaria" name="incapacidade_temporaria"  <%- ((testamento && testamento.outros) ? 'checked="checked"' : '') %>>
-        <label class="form-check-label" for="inputIncapacidadeTemporaria"> Condição de incapacidade temporária de exprimir vontade </label>
-      </div> 
-    
+        <input class="form-check-input" type="checkbox" id="inputIncapacidadeTemporaria" name="incapacidade_temporaria"
+          <%- ((testamento && testamento.outros) ? 'checked="checked"' : '' ) %>>
+        <label class="form-check-label" for="inputIncapacidadeTemporaria"> Condição de incapacidade temporária de
+          exprimir vontade </label>
+      </div>
+
     </div>
-    
-    
+
+
     <!-- Suporte e Ressuscitação -->
     <div class="mb-3">
       <label class="form-label"><b>Suporte/Ressuscitação (RCP):</b></label>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id= "inputRcp" name="rcp" <%- ((testamento && testamento.rcp) ? 'checked="checked"' : '') %> >
+        <input class="form-check-input" type="checkbox" id="inputRcp" name="rcp" <%- ((testamento && testamento.rcp)
+          ? 'checked="checked"' : '' ) %> >
         <label class="form-check-label" for="inputRcp">Aceito manobras de ressuscitação</label>
       </div>
-      
 
-    <!-- Hidratação e Nutrição -->
-    <div class="mb-3">
-      <label class="form-label"><b>Nutrição/Hidratação Artificial:</b></label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="inputNutricaoArtificial" name="nutricao_artificial" <%- ((testamento && testamento.nutricao_artificial) ? 'checked="checked"' : '') %> >
-        <label class="form-check-label" for="inputNutricaoArtificiail">Aceito nutrição e hidratação artificial</label>
-      </div>
+
+      <!-- Hidratação e Nutrição -->
+      <div class="mb-3">
+        <label class="form-label"><b>Nutrição/Hidratação Artificial:</b></label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="inputNutricaoArtificial" name="nutricao_artificial" <%-
+            ((testamento && testamento.nutricao_artificial) ? 'checked="checked"' : '' ) %> >
+          <label class="form-check-label" for="inputNutricaoArtificiail">Aceito nutrição e hidratação artificial</label>
+        </div>
       </div>
     </div>
     <!-- Valores e Prioridades -->
     <div class="mb-3">
       <label for="inputValores" class="form-label"><b>Valores e Prioridades (diretrizes gerais): </b></label>
       <textarea class="form-control" id="inputValoresPrioridades" name="valores_prioridades" rows="3"
-        placeholder="Descreva seus valores pessoais e prioridades..."> <%= (testamento ? testamento.valores_prioridades : '') %> </textarea> 
+        placeholder="Descreva seus valores pessoais e prioridades..."> <%= (testamento ? testamento.valores_prioridades : '') %> </textarea>
     </div>
     <!-- Aspectos Religiosos/Espirituais -->
     <div class="mb-4">
@@ -196,7 +236,8 @@
     <h5 class="mb-3">Doação de Órgãos/Tecidos</h5>
     <div class="mb-3">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="doacao_orgaos" id="inputDoacaoOrgaos" <%- ((testamento && testamento.doacao_orgaos) ? 'checked="checked"' : '') %> >
+        <input class="form-check-input" type="checkbox" name="doacao_orgaos" id="inputDoacaoOrgaos" <%- ((testamento &&
+          testamento.doacao_orgaos) ? 'checked="checked"' : '' ) %> >
         <label class="form-check-label" for="inputDoacaoOrgaos">Permito doação de órgãos e tecidos</label>
       </div>
     </div>
@@ -207,24 +248,26 @@
       <div class="col-md-6 mb-3">
         <label for="inputTestemunha1" class="form-label">Nome da Testemunha 1</label>
         <input type="text" class="form-control" id="inputTestemunha1" name="testemunha1"
-          placeholder="Nome completo da primeira testemunha" value="<%= (testamento ? testamento.testemunha1_nome : '') %>" />
+          placeholder="Nome completo da primeira testemunha"
+          value="<%= (testamento ? testamento.testemunha1_nome : '') %>" />
       </div>
       <div class="col-md-6 mb-3">
         <label for="inputTestemunha1Cpf" class="form-label">CPF da Testemunha 1</label>
-        <input type="text" class="form-control" id="inputTestemunha1Cpf" name="testemunha1_cpf" placeholder="000.000.000-00"
-          maxlength="14" value="<%= (testamento ? testamento.testemunha1_cpf: '') %>" />
+        <input type="text" class="form-control" id="inputTestemunha1Cpf" name="testemunha1_cpf"
+          placeholder="000.000.000-00" maxlength="14" value="<%= (testamento ? testamento.testemunha1_cpf: '') %>" />
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-6 mb-3">
         <label for="inputTestemunha2" class="form-label">Nome da Testemunha 2</label>
         <input type="text" class="form-control" id="inputTestemunha2" name="testemunha2"
-          placeholder="Nome completo da segunda testemunha" value="<%= (testamento ? testamento.testemunha2_nome : '') %>" />
+          placeholder="Nome completo da segunda testemunha"
+          value="<%= (testamento ? testamento.testemunha2_nome : '') %>" />
       </div>
       <div class="col-md-6 mb-3">
         <label for="inputTestemunha2Cpf" class="form-label">CPF da Testemunha 2</label>
-        <input type="text" class="form-control" id="inputTestemunha2Cpf" name="testemunha2_cpf" placeholder="000.000.000-00"
-          maxlength="14" value="<%= (testamento ? testamento.testemunha2_cpf : '') %>" />
+        <input type="text" class="form-control" id="inputTestemunha2Cpf" name="testemunha2_cpf"
+          placeholder="000.000.000-00" maxlength="14" value="<%= (testamento ? testamento.testemunha2_cpf : '') %>" />
       </div>
     </div>
 
@@ -261,7 +304,219 @@
 
 <!-- Script JavaScript para comportamentos dinâmicos do formulário -->
 <script>
- 
+  async function criarTestamento() {
+    let inputId = document.getElementById("inputId");
+    let inputNome = document.getElementById("inputNome");
+    let inputEmail = document.getElementById("inputEmail");
+    let inputCpf = document.getElementById("inputCpf");
+    let inputNascimento = document.getElementById("inputNascimento");
+    let inputTelefone = document.getElementById("inputTelefone");
+    let inputEndereco = document.getElementById("inputEndereco");
+    let inputUf = document.getElementById("inputUf");
+    let inputRepresentante = document.getElementById("inputRepresentante");
+    let inputRelacaoRep = document.getElementById("inputRelacaoRep");
+    let inputRepresentanteTel = document.getElementById("inputRepresentanteTel");
+    let inputDoencaTerminal = document.getElementById("inputDoencaTerminal");
+    let inputEstadoVegetativo = document.getElementById("inputEstadoVegetativo");
+    let inputCondicaoIrreversivel = document.getElementById("inputCondicaoIrreversivel");
+    let inputIncapacidadeTemporaria = document.getElementById("inputIncapacidadeTemporaria");
+    let inputRcp = document.getElementById("inputRcp");
+    let inputNutricaoArtificial = document.getElementById("inputNutricaoArtificial");
+    let inputValoresPrioridades = document.getElementById("inputValoresPrioridades");
+    let inputReligioso = document.getElementById("inputReligioso");
+    let inputDoacaoOrgaos = document.getElementById("inputDoacaoOrgaos");
+    let inputTestemunha1 = document.getElementById("inputTestemunha1");
+    let inputTestemunha1Cpf = document.getElementById("inputTestemunha1Cpf");
+    let inputTestemunha2 = document.getElementById("inputTestemunha2");
+    let inputTestemunha2Cpf = document.getElementById("inputTestemunha2Cpf");
+
+
+
+
+    let id = inputId.value;
+    let nome = inputNome.value;
+    let email = inputEmail.value;
+    let cpf = inputCpf.value;
+    let nascimento = inputNascimento.value;
+    let telefone = inputTelefone.value;
+    let endereco = inputEndereco.value;
+    let uf = inputUf.value;
+    let representante_nome = inputRepresentante.value;
+    let representante_parentesco = inputRelacaoRep.value;
+    let representante_telefone = inputRepresentanteTel.value;
+    let doenca_terminal = inputDoencaTerminal.checked;
+    let estado_vegetativo = inputEstadoVegetativo.checked;
+    let condicao_irreversivel = inputCondicaoIrreversivel.checked;
+    let incapacidade_temporaria = inputIncapacidadeTemporaria.checked;
+    let rcp = inputRcp.checked;
+    let nutricao_artificial = inputNutricaoArtificial.checked;
+    let valores_prioridades = inputValoresPrioridades.value;
+    let aspectos_religiosos = inputReligioso.value;
+    let doacao_orgaos = inputDoacaoOrgaos.checked;
+    let testemunha1_nome = inputTestemunha1.value;
+    let testemunha1_cpf = inputTestemunha1Cpf.value;
+    let testemunha2_nome = inputTestemunha2.value;
+    let testemunha2_cpf = inputTestemunha2Cpf.value;
+
+
+
+    if (!nome) {
+      alert("Nome inválido!");
+      return;
+    }
+
+    if (!email) {
+      alert("E-mail inválido!");
+      return;
+    }
+
+
+    if (!cpf) {
+
+      alert("CPF inválido!");
+      return;
+    }
+
+    if (!nascimento) {
+      alert("Data de nascimento inválida!");
+      return;
+    }
+
+
+    if (!telefone) {
+      alert("Telefone inválido!");
+      return;
+    }
+
+    if (!endereco) {
+      alert("Endereço inválido!");
+      return;
+    }
+
+    if (!uf) {
+      alert("UF inválido!");
+      return;
+    }
+
+    if (!representante_nome) {
+      alert("Nome do representante inválido!");
+      return;
+    }
+
+
+    if (!representante_parentesco) {
+      alert("Parentesco do representante inválido!");
+      return;
+    }
+
+    if (!representante_telefone) {
+      alert("Telefone do representante inválido!");
+      return;
+    }
+
+
+    
+
+    if (!testemunha1_nome) {
+      alert("Nome da Testemunha 1 inválido!");
+      return;
+    }
+
+    if (!testemunha1_cpf) {
+      alert("CPF da Testemunha 1 inválido!");
+      return;
+    }
+
+    if (!testemunha2_nome) {
+      alert("Nome da Testemunha 2 inválido!");
+      return;
+    }
+
+    if (!testemunha2_cpf) {
+      alert("CPF da Testemunha 2 inválido!");
+      return;
+    } 
+
+
+
+    let testamento = {
+      id: id,
+      nome: nome,
+      email: email,
+      cpf: cpf,
+      nascimento: nascimento,
+      telefone: telefone,
+      endereco: endereco,
+      uf: uf,
+      representante_nome: representante_nome,
+      representante_parentesco: representante_parentesco,
+      representante_telefone: representante_telefone,
+      doenca_terminal: doenca_terminal,
+      estado_vegetativo: estado_vegetativo,
+      condicao_irreversivel: condicao_irreversivel,
+      incapacidade_temporaria: incapacidade_temporaria,
+      rcp: rcp,
+      nutricao_artificial: nutricao_artificial,
+      valores_prioridades: valores_prioridades,
+      doacao_orgaos: doacao_orgaos,
+      testemunha1_nome: testemunha1_nome,
+      testemunha1_cpf: testemunha1_cpf,
+      testemunha2_nome: testemunha2_nome,
+      testemunha2_cpf: testemunha2_cpf
+
+
+    };
+
+    try {
+
+      let response = await fetch("/api/criartestamento", {
+        method: "POST",
+        body: JSON.stringify(testamento),
+        headers: {
+          "content-type": "application/json"
+        }
+      });
+
+      if (!response.ok) {
+        alert("Ocorreu um erro ao salvar o testamento :(");
+        return;
+      }
+
+      id = await response.json();
+      inputId.value = id;
+
+      /*
+      inputNome.value = "";
+      inputEmail.value = "";
+      inputCpf.value = "";
+      inputNascimento.value = "";
+      inputTelefone.value = "";
+      inputEndereco.value = "";
+      inputUf.value = "";
+      inputRepresentante.value = "";
+      inputRelacaoRep.value = "";
+      inputRepresentanteTel.value = "";
+      inputDoencaTerminal.checked = false;
+      inputEstadoVegetativo.checked = false;
+      inputCondicaoIrreversivel.checked = false;
+      inputIncapacidadeTemporaria.checked = false;
+      inputRcp.checked = false;
+      inputValoresPrioridades.value = "";
+      inputReligioso.value = "";
+      inputTestemunha1.value = "";
+      inputTestemunha1Cpf.value = "";
+      inputTestemunha2.value = "";
+      inputTestemunha2Cpf.value = "";
+      */
+
+      alert("Testamento salvo com sucesso!");
+
+    } catch (ex) {
+
+      alert("Ocorreu um erro de rede ao salvar o testamento: " + ex.message)
+    }
+
+  }
 
 </script>
 </body>
